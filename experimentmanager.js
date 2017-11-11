@@ -34,13 +34,13 @@ var DEFAULT_PARAMS = {
 
 function ExperimentManager() {
     this.run = 0;
-    this.maxRuns = 10; //max runs per test
+    this.maxRuns = 8; //max runs per test
     this.currentTest = 0;
     this.dataGroup = "TEST-GROUP2";
 
     //copy the default as test base for each test to run
     var tests = [];
-    for(var i = 0; i < 12; i++) {
+    for(var i = 0; i < 13; i++) {
         tests.push(Object.assign({}, DEFAULT_PARAMS));
     }
 
@@ -56,17 +56,17 @@ function ExperimentManager() {
     tests[num].mutStep = 4;
 
     num++;
-    tests[num].runName = "breedAndShare64"
-    tests[num].maxBreed = 32;
-    tests[num].maxShare = 32;
+    tests[num].runName = "share16"
+    tests[num].maxShare = 16;
 
     num++;
-    tests[num].runName = "share32"
-    tests[num].maxShare = 32;
+    tests[num].runName = "breed16"
+    tests[num].maxBreed = 16;
 
     num++;
-    tests[num].runName = "breed32"
-    tests[num].maxBreed = 32;
+    tests[num].runName = "breedShare16"
+    tests[num].maxBreed = 16;
+    tests[num].maxShare = 16;
 
     num++;
     tests[num].runName = "shareSelfish"
@@ -77,21 +77,24 @@ function ExperimentManager() {
     tests[num].uniformForage = true;
 
     num++;
-    tests[num].runName = "selfishAndUniform"
-    tests[num].uniformForage = true;
-    tests[num].shareWithSelfish = true;
-
-    num++;
     tests[num].runName = "breedRandom"
     tests[num].breedClosest = false;
 
     num++;
-    tests[num].runName = "publicGoods12"
-    tests[num].publicGoods = 1.2;
+    tests[num].runName = "publicGoods125"
+    tests[num].publicGoods = 1.25;
 
     num++;
-    tests[num].runName = "publicGoods15"
+    tests[num].runName = "publicGoods150"
     tests[num].publicGoods = 1.5;
+
+    num++;
+    tests[num].runName = "publicGoods175"
+    tests[num].publicGoods = 1.75;
+
+    num++;
+    tests[num].runName = "mutateBreedShare"
+    tests[num].mutateRanges = true;
 
     //keep tests as an empty array if you want to play around with settings in UI
     this.tests = tests;
