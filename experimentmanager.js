@@ -7,7 +7,7 @@ var DEFAULT_PARAMS = {
     sharePercentModifier: 0.1,
     breedClosest: true,
     shareWithSelfish: false,
-    uniformForage: false,
+    uniformForage: true,
     mutateRanges: false,
 
     popDenominator: 400,
@@ -36,65 +36,54 @@ function ExperimentManager() {
     this.run = 0;
     this.maxRuns = 8; //max runs per test
     this.currentTest = 0;
-    this.dataGroup = "TEST-GROUP2";
+    this.dataGroup = "TEST-GROUP3";
 
     //copy the default as test base for each test to run
     var tests = [];
-    for(var i = 0; i < 13; i++) {
+    for(var i = 0; i < 10; i++) {
         tests.push(Object.assign({}, DEFAULT_PARAMS));
     }
 
     var num = 0;
-    //test[0] is default
+    tests[num].runName = "step16"
+    tests[num].mutStep = 16;
 
     num++;
-    tests[num].runName = "step8"
-    tests[num].mutStep = 8;
+    tests[num].runName = "share2"
+    tests[num].maxShare = 2;
 
     num++;
-    tests[num].runName = "step4"
-    tests[num].mutStep = 4;
+    tests[num].runName = "breed2"
+    tests[num].maxBreed = 2;
 
     num++;
-    tests[num].runName = "share16"
-    tests[num].maxShare = 16;
+    tests[num].runName = "breedShare2"
+    tests[num].maxBreed = 2;
+    tests[num].maxShare = 2;
 
     num++;
-    tests[num].runName = "breed16"
-    tests[num].maxBreed = 16;
+    tests[num].runName = "publicGoods11"
+    tests[num].publicGoods = 1.1;
 
     num++;
-    tests[num].runName = "breedShare16"
-    tests[num].maxBreed = 16;
-    tests[num].maxShare = 16;
+    tests[num].runName = "publicGoods12"
+    tests[num].publicGoods = 1.2;
 
     num++;
-    tests[num].runName = "shareSelfish"
-    tests[num].shareWithSelfish = true;
+    tests[num].runName = "publicGoods13"
+    tests[num].publicGoods = 1.3;
 
     num++;
-    tests[num].runName = "uniformForage"
-    tests[num].uniformForage = true;
+    tests[num].runName = "publicGoods14"
+    tests[num].publicGoods = 1.4;
 
     num++;
-    tests[num].runName = "breedRandom"
-    tests[num].breedClosest = false;
-
-    num++;
-    tests[num].runName = "publicGoods125"
-    tests[num].publicGoods = 1.25;
-
-    num++;
-    tests[num].runName = "publicGoods150"
+    tests[num].runName = "publicGoods15"
     tests[num].publicGoods = 1.5;
 
     num++;
-    tests[num].runName = "publicGoods175"
-    tests[num].publicGoods = 1.75;
-
-    num++;
-    tests[num].runName = "mutateBreedShare"
-    tests[num].mutateRanges = true;
+    tests[num].runName = "publicGoods16"
+    tests[num].publicGoods = 1.6;
 
     //keep tests as an empty array if you want to play around with settings in UI
     this.tests = tests;
