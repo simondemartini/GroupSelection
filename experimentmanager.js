@@ -6,17 +6,8 @@ var DEFAULT_PARAMS = {
     publicGoods: 2,
     sharePercentModifier: 0.1,
     breedClosest: true,
-<<<<<<< Updated upstream
-    shareWithSelfish: false,
-<<<<<<< HEAD
-    uniformForage: true,
-=======
-    uniformForage: false,
-=======
     shareWithSelfish: true,
     uniformForage: true,
->>>>>>> Stashed changes
->>>>>>> master
     mutateRanges: false,
 
     popDenominator: 400,
@@ -45,83 +36,87 @@ function ExperimentManager() {
     this.run = 0;
     this.maxRuns = 8; //max runs per test
     this.currentTest = 0;
-<<<<<<< HEAD
-    this.dataGroup = "TEST-GROUP3";
+    this.dataGroup = "TEST-GROUP4";
+    this.retryMax = 10;
 
     //copy the default as test base for each test to run
     var tests = [];
-    for(var i = 0; i < 10; i++) {
-=======
-    this.dataGroup = "DUMMY-DATA";
-    this.retryMax = 3;
-
-    //copy the default as test base for each test to run
-    var tests = [];
-<<<<<<< HEAD
-    for(var i = 0; i < 2; i++) {
->>>>>>> master
-        tests.push(Object.assign({}, DEFAULT_PARAMS));
-    }
-
-    var num = 0;
-<<<<<<< HEAD
-    tests[num].runName = "step16"
-    tests[num].mutStep = 16;
-
-    num++;
-    tests[num].runName = "share2"
-    tests[num].maxShare = 2;
-
-    num++;
-    tests[num].runName = "breed2"
-    tests[num].maxBreed = 2;
-
-    num++;
-    tests[num].runName = "breedShare2"
-    tests[num].maxBreed = 2;
-    tests[num].maxShare = 2;
-
-    num++;
-    tests[num].runName = "publicGoods11"
-    tests[num].publicGoods = 1.1;
-
-    num++;
-    tests[num].runName = "publicGoods12"
-    tests[num].publicGoods = 1.2;
-
-    num++;
-    tests[num].runName = "publicGoods13"
-    tests[num].publicGoods = 1.3;
-
-    num++;
-    tests[num].runName = "publicGoods14"
-    tests[num].publicGoods = 1.4;
-
-    num++;
-    tests[num].runName = "publicGoods15"
-    tests[num].publicGoods = 1.5;
-=======
-
-    tests[num].runName = "mightfail2"
-    tests[num].publicGoods = 1.1;
-
-    num++;
-    tests[num].runName = "pass"
-    tests[num].publicGoods = 2;
->>>>>>> master
-
-    num++;
-    tests[num].runName = "publicGoods16"
-    tests[num].publicGoods = 1.6;
-
-=======
     for(var i = 0; i < 17; i++) {
         tests.push(Object.assign({}, DEFAULT_PARAMS));
     }
 
->>>>>>> master
+    var num = 0;
+    tests[num].runName = "default"
+
+    num++;
+    tests[num].runName = "sb8"
+    tests[num].maxShare = 8;
+    tests[num].maxBreed = 8;
+
+    num++;
+    tests[num].runName = "sb16"
+    tests[num].maxShare = 16;
+    tests[num].maxBreed = 16;
+
+    num++;
+    tests[num].runName = "sb32"
+    tests[num].maxShare = 32;
+    tests[num].maxBreed = 32;
+
+    num++;
+    tests[num].runName = "step16"
+    tests[num].mutStep = 16;
+
+    num++;
+    tests[num].runName = "step8"
+    tests[num].mutStep = 8;
+
+    num++;
+    tests[num].runName = "step4"
+    tests[num].mutStep = 4;
+
+    num++;
+    tests[num].runName = "pg10"
+    tests[num].publicGoods = 1.0;
+
+    num++;
+    tests[num].runName = "pg11"
+    tests[num].publicGoods = 1.1;
+
+    num++;
+    tests[num].runName = "pg12"
+    tests[num].publicGoods = 1.2;
+
+    num++;
+    tests[num].runName = "pg13"
+    tests[num].publicGoods = 1.3;
+
+    num++;
+    tests[num].runName = "pg14"
+    tests[num].publicGoods = 1.4;
+
+    num++;
+    tests[num].runName = "pg15"
+    tests[num].publicGoods = 1.5;
+
+    num++;
+    tests[num].runName = "pg16"
+    tests[num].publicGoods = 1.6;
+
+    num++;
+    tests[num].runName = "pg17"
+    tests[num].publicGoods = 1.7;
+
+    num++;
+    tests[num].runName = "pg18"
+    tests[num].publicGoods = 1.8;
+
+    num++;
+    tests[num].runName = "pg19"
+    tests[num].publicGoods = 1.9;
+
     //keep tests as an empty array if you want to play around with settings in UI
-    this.tests = [];
+    this.tests = tests;
     this.updateUI(DEFAULT_PARAMS);
 
 }
